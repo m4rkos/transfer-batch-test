@@ -16,11 +16,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Using Include="Xunit" />
+    <ProjectReference Include="..\transfer-batch\transfer-batch.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\dotnet-transfer-batch-p\dotnet-transfer-batch-p.csproj" />
+    <Using Include="Xunit" />
   </ItemGroup>
 
 </Project>

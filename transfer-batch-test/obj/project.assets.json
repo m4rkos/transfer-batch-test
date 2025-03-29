@@ -412,14 +412,14 @@
           "build/net6.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "dotnet-transfer-batch-p/1.0.0": {
+      "transfer-batch/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "compile": {
-          "bin/placeholder/dotnet-transfer-batch-p.dll": {}
+          "bin/placeholder/transfer-batch.dll": {}
         },
         "runtime": {
-          "bin/placeholder/dotnet-transfer-batch-p.dll": {}
+          "bin/placeholder/transfer-batch.dll": {}
         }
       }
     }
@@ -943,17 +943,17 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "dotnet-transfer-batch-p/1.0.0": {
+    "transfer-batch/1.0.0": {
       "type": "project",
-      "path": "../dotnet-transfer-batch-p/dotnet-transfer-batch-p.csproj",
-      "msbuildProject": "../dotnet-transfer-batch-p/dotnet-transfer-batch-p.csproj"
+      "path": "../transfer-batch/transfer-batch.csproj",
+      "msbuildProject": "../transfer-batch/transfer-batch.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
       "Microsoft.NET.Test.Sdk >= 17.12.0",
       "coverlet.collector >= 6.0.2",
-      "dotnet-transfer-batch-p >= 1.0.0",
+      "transfer-batch >= 1.0.0",
       "xunit >= 2.9.2",
       "xunit.runner.visualstudio >= 2.8.2"
     ]
@@ -965,9 +965,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marko\\Documents\\__DEV_ok\\Personal\\DOTNET\\transfer-batch-processing_Enunciado\\transfer-batch-processing\\transfer-batch-test\\dotnet-transfer-batch-p-test.csproj",
-      "projectName": "dotnet-transfer-batch-p-test",
-      "projectPath": "C:\\Users\\marko\\Documents\\__DEV_ok\\Personal\\DOTNET\\transfer-batch-processing_Enunciado\\transfer-batch-processing\\transfer-batch-test\\dotnet-transfer-batch-p-test.csproj",
+      "projectUniqueName": "C:\\Users\\marko\\Documents\\__DEV_ok\\Personal\\DOTNET\\transfer-batch-processing_Enunciado\\transfer-batch-processing\\transfer-batch-test\\transfer-batch-test.csproj",
+      "projectName": "transfer-batch-test",
+      "projectPath": "C:\\Users\\marko\\Documents\\__DEV_ok\\Personal\\DOTNET\\transfer-batch-processing_Enunciado\\transfer-batch-processing\\transfer-batch-test\\transfer-batch-test.csproj",
       "packagesPath": "C:\\Users\\marko\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\marko\\Documents\\__DEV_ok\\Personal\\DOTNET\\transfer-batch-processing_Enunciado\\transfer-batch-processing\\transfer-batch-test\\obj\\",
       "projectStyle": "PackageReference",
@@ -990,8 +990,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\marko\\Documents\\__DEV_ok\\Personal\\DOTNET\\transfer-batch-processing_Enunciado\\transfer-batch-processing\\dotnet-transfer-batch-p\\dotnet-transfer-batch-p.csproj": {
-              "projectPath": "C:\\Users\\marko\\Documents\\__DEV_ok\\Personal\\DOTNET\\transfer-batch-processing_Enunciado\\transfer-batch-processing\\dotnet-transfer-batch-p\\dotnet-transfer-batch-p.csproj"
+            "C:\\Users\\marko\\Documents\\__DEV_ok\\Personal\\DOTNET\\transfer-batch-processing_Enunciado\\transfer-batch-processing\\transfer-batch\\transfer-batch.csproj": {
+              "projectPath": "C:\\Users\\marko\\Documents\\__DEV_ok\\Personal\\DOTNET\\transfer-batch-processing_Enunciado\\transfer-batch-processing\\transfer-batch\\transfer-batch.csproj"
             }
           }
         }

@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marko\\Documents\\__DEV_ok\\Personal\\DOTNET\\transfer-batch-processing_Enunciado\\transfer-batch-processing\\dotnet-transfer-batch-p\\dotnet-transfer-batch-p.csproj",
-      "projectName": "dotnet-transfer-batch-p",
-      "projectPath": "C:\\Users\\marko\\Documents\\__DEV_ok\\Personal\\DOTNET\\transfer-batch-processing_Enunciado\\transfer-batch-processing\\dotnet-transfer-batch-p\\dotnet-transfer-batch-p.csproj",
+      "projectUniqueName": "C:\\Users\\marko\\Documents\\__DEV_ok\\Personal\\DOTNET\\transfer-batch-processing_Enunciado\\transfer-batch-processing\\transfer-batch\\transfer-batch.csproj",
+      "projectName": "transfer-batch",
+      "projectPath": "C:\\Users\\marko\\Documents\\__DEV_ok\\Personal\\DOTNET\\transfer-batch-processing_Enunciado\\transfer-batch-processing\\transfer-batch\\transfer-batch.csproj",
       "packagesPath": "C:\\Users\\marko\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\marko\\Documents\\__DEV_ok\\Personal\\DOTNET\\transfer-batch-processing_Enunciado\\transfer-batch-processing\\dotnet-transfer-batch-p\\obj\\",
+      "outputPath": "C:\\Users\\marko\\Documents\\__DEV_ok\\Personal\\DOTNET\\transfer-batch-processing_Enunciado\\transfer-batch-processing\\transfer-batch\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
