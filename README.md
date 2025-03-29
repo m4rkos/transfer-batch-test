@@ -47,3 +47,5 @@ We accept solutions implemented in one of the following programming languages:
 
 ## To run unit test
 Just go inside trafer-batch-test and type `dotnet test`
+
+> Author: Marcos Eduardo
