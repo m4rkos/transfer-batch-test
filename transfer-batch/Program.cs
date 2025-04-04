@@ -59,6 +59,10 @@ public class Program
         }
 
         var data = new Dictionary<string, List<decimal>>();
+
+        decimal globalMax = decimal.MinValue;
+        string? globalMaxAccount = null;
+
         foreach (var parts in from line in lines
                               let parts = line.Split(',')
                               select parts)
@@ -73,6 +77,13 @@ public class Program
             }
 
             value.Add(amount);
+            
+            // updating the transaction with more value
+            if (amount > globalMax)
+            {
+                globalMax = amount;
+                globalMaxAccount = accountId;
+            }
         }
 
         var outputLines = new List<string>();
@@ -81,9 +92,9 @@ public class Program
             var transfers = data[account];
             var total = transfers.Sum();
 
-            if (transfers.Count > 1)
+            if (account == globalMaxAccount)
             {
-                total -= transfers.Max();
+                total -= globalMax;
             }
 
             var commission = Math.Round(total * 0.10m, 2);
