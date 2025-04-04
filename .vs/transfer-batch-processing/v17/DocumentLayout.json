@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\marko\\Documents\\__DEV_ok\\Personal\\DOTNET\\transfer-batch-processing_Enunciado\\transfer-batch-processing\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F2E1379D-3AB4-8EC4-E7E3-919213ABF202}|transfer-batch\\transfer-batch.csproj|c:\\users\\marko\\documents\\__dev_ok\\personal\\dotnet\\transfer-batch-processing_enunciado\\transfer-batch-processing\\transfer-batch\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2E1379D-3AB4-8EC4-E7E3-919213ABF202}|transfer-batch\\transfer-batch.csproj|solutionrelative:transfer-batch\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4F042D37-B2F9-BF41-C4E1-E27D85F39D05}|transfer-batch-test\\transfer-batch-test.csproj|c:\\users\\marko\\documents\\__dev_ok\\personal\\dotnet\\transfer-batch-processing_enunciado\\transfer-batch-processing\\transfer-batch-test\\transfer-batch-test.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{4F042D37-B2F9-BF41-C4E1-E27D85F39D05}|transfer-batch-test\\transfer-batch-test.csproj|solutionrelative:transfer-batch-test\\transfer-batch-test.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
@@ -99,6 +103,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\marko\\Documents\\__DEV_ok\\Personal\\DOTNET\\transfer-batch-processing_Enunciado\\transfer-batch-processing\\transfer-batch\\Program.cs",
+              "RelativeDocumentMoniker": "transfer-batch\\Program.cs",
+              "ToolTip": "C:\\Users\\marko\\Documents\\__DEV_ok\\Personal\\DOTNET\\transfer-batch-processing_Enunciado\\transfer-batch-processing\\transfer-batch\\Program.cs",
+              "RelativeToolTip": "transfer-batch\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T08:53:43.455Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "transfer-batch-test.csproj",
               "DocumentMoniker": "C:\\Users\\marko\\Documents\\__DEV_ok\\Personal\\DOTNET\\transfer-batch-processing_Enunciado\\transfer-batch-processing\\transfer-batch-test\\transfer-batch-test.csproj",
               "RelativeDocumentMoniker": "transfer-batch-test\\transfer-batch-test.csproj",
@@ -111,7 +128,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\marko\\Documents\\__DEV_ok\\Personal\\DOTNET\\transfer-batch-processing_Enunciado\\transfer-batch-processing\\dotnet-transfer-batch-p\\Program.cs",
               "RelativeDocumentMoniker": "dotnet-transfer-batch-p\\Program.cs",

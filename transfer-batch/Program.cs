@@ -1,11 +1,42 @@
 ﻿using System.Globalization;
 
-namespace dotnet_transfer_batch_p;
+namespace DotnetTransferBatch;
 
 public class Program
 {
-    public static string ProcessTransfers(string[] lines)
+    public static void Main(string[] args)
     {
+        if (args.Length != 1)
+        {
+            Console.Error.WriteLine("Usage: TransferBatch <path_to_transfers_file>");
+            Environment.Exit(1);
+        }
+
+        var path = args[0];
+        if (!File.Exists(path))
+        {
+            Console.Error.WriteLine($"File not found: {path}");
+            Environment.Exit(1);
+        }
+
+        // Carrega o arquivo inteiro em memória (cache) como array de bytes
+        byte[] fileBytes = File.ReadAllBytes(path);
+
+        // Utiliza MemoryStream para ler as linhas do arquivo carregado em memória
+        List<string> lines = [];
+        using (var ms = new MemoryStream(fileBytes))
+        {
+            using var sr = new StreamReader(ms);
+            while (!sr.EndOfStream)
+            {
+                var line = sr.ReadLine();
+                if (!string.IsNullOrWhiteSpace(line))
+                {
+                    lines.Add(line);
+                }
+            }
+        }
+
         var data = new Dictionary<string, List<decimal>>();
 
         foreach (var line in lines)
@@ -35,32 +66,15 @@ public class Program
             }
 
             var commission = Math.Round(total * 0.10m, 2);
-            var output = commission % 1 == 0 
-                ? commission.ToString("F0", CultureInfo.InvariantCulture) 
+            var output = commission % 1 == 0
+                ? commission.ToString("F0", CultureInfo.InvariantCulture)
                 : commission.ToString("F2", CultureInfo.InvariantCulture);
 
             outputLines.Add($"{account},{output}");
         }
 
-        return string.Join(Environment.NewLine, outputLines) + Environment.NewLine;
-    }
+        var result = string.Join(Environment.NewLine, outputLines) + Environment.NewLine;
 
-    public static void Main(string[] args)
-    {
-        if (args.Length != 1)
-        {
-            Console.Error.WriteLine("Usage: TransferBatch <path_to_transfers_file>");
-            Environment.Exit(1);
-        }
-
-        var path = args[0];
-        if (!File.Exists(path))
-        {
-            Console.Error.WriteLine($"File not found: {path}");
-            Environment.Exit(1);
-        }
-
-        var lines = File.ReadAllLines(path);
-        Console.Write(ProcessTransfers(lines));
+        Console.Write(result);
     }
 }

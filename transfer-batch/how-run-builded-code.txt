@@ -1,1 +1,1 @@
-dotnet-transfer-batch-p\\bin\\Debug\\net9.0\\dotnet-transfer-batch-p.exe transfers.csv
+transfer-batch\\bin\\Debug\\net9.0\\transfer-batch.exe transfers.csv
