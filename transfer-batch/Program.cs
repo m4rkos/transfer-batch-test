@@ -1,13 +1,11 @@
-﻿using System.Globalization;
+﻿using Microsoft.Extensions.Caching.Memory;
+using System.Globalization;
 
 namespace DotnetTransferBatch;
 
 public class Program
 {
-    private static string? cachedFilePath;
-    private static long cachedFileSize;
-    private static string[]? cachedLines;
-    private static DateTime cachedLastWriteTimeUtc;
+    private static readonly MemoryCache _cache = new(new MemoryCacheOptions());
 
     public static void Main(string[] args)
     {
@@ -24,20 +22,17 @@ public class Program
             Environment.Exit(1);
         }
 
-        var fileInfo = new FileInfo(path);
-        string[] lines;
+        string fullPath = Path.GetFullPath(path);
+        var fileInfo = new FileInfo(fullPath);
 
         // The cache could be used if file has the same path and was the same size than current in cache
-        if (cachedLines != null && 
-            cachedFilePath == path && 
-            cachedFileSize == fileInfo.Length &&
-            cachedLastWriteTimeUtc == fileInfo.LastWriteTimeUtc)
+        // Cria uma chave de cache única com base no caminho, tamanho e data de modificação
+        string cacheKey = $"filecache_{fullPath}_{fileInfo.Length}_{fileInfo.LastWriteTimeUtc.Ticks}";
+
+        // Tenta obter as linhas do arquivo a partir do cache
+        if (!_cache.TryGetValue(cacheKey, out string[]? lines))
         {
-            lines = cachedLines;
-            Console.WriteLine("using cache memory");
-        }
-        else
-        {
+            // Se não estiver no cache, lê o arquivo e armazena no cache
             byte[] fileBytes = File.ReadAllBytes(path);
 
             List<string> linesList = [];
@@ -55,26 +50,28 @@ public class Program
             }
 
             lines = [.. linesList];
-            cachedLines = lines;
-            cachedFilePath = path;
-            cachedFileSize = fileInfo.Length;
-            cachedLastWriteTimeUtc = fileInfo.LastWriteTimeUtc;
+
+            // Configura as opções de expiração do cache (por exemplo, 5 minutos)
+            var cacheEntryOptions = new MemoryCacheEntryOptions()
+                .SetAbsoluteExpiration(TimeSpan.FromMinutes(5));
+
+            _cache.Set(cacheKey, lines, cacheEntryOptions);
         }
 
         var data = new Dictionary<string, List<decimal>>();
-
-        foreach (var line in lines)
+        foreach (var parts in from line in lines
+                              let parts = line.Split(',')
+                              select parts)
         {
-            var parts = line.Split(',');
             if (parts.Length != 3 || !decimal.TryParse(parts[2], NumberStyles.Any, CultureInfo.InvariantCulture, out var amount))
                 continue;
-
             var accountId = parts[0];
             if (!data.TryGetValue(accountId, out List<decimal>? value))
             {
                 value = [];
                 data[accountId] = value;
             }
+
             value.Add(amount);
         }
 

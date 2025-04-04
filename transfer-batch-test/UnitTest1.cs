@@ -1,8 +1,4 @@
-﻿using System;
-using System.IO;
-using Xunit;
-
-namespace DotnetTransferBatch;
+﻿namespace DotnetTransferBatch;
 
 public class UnitTest1
 {
@@ -33,10 +29,8 @@ public class UnitTest1
             var originalOut = Console.Out;
             Console.SetOut(sw);
                 
-            // Chama o Main. Note que o método Main espera um array de argumentos com o caminho do arquivo.
             Program.Main([tempFilePath]);
 
-            // Restaura a saída original do console
             Console.SetOut(originalOut);
 
             // Assert: Compara a saída capturada com o esperado
