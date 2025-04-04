@@ -4,6 +4,11 @@ namespace DotnetTransferBatch;
 
 public class Program
 {
+    private static string? cachedFilePath;
+    private static long cachedFileSize;
+    private static string[]? cachedLines;
+    private static DateTime cachedLastWriteTimeUtc;
+
     public static void Main(string[] args)
     {
         if (args.Length != 1)
@@ -19,22 +24,41 @@ public class Program
             Environment.Exit(1);
         }
 
-        // Carrega o arquivo inteiro em memória (cache) como array de bytes
-        byte[] fileBytes = File.ReadAllBytes(path);
+        var fileInfo = new FileInfo(path);
+        string[] lines;
 
-        // Utiliza MemoryStream para ler as linhas do arquivo carregado em memória
-        List<string> lines = [];
-        using (var ms = new MemoryStream(fileBytes))
+        // The cache could be used if file has the same path and was the same size than current in cache
+        if (cachedLines != null && 
+            cachedFilePath == path && 
+            cachedFileSize == fileInfo.Length &&
+            cachedLastWriteTimeUtc == fileInfo.LastWriteTimeUtc)
         {
-            using var sr = new StreamReader(ms);
-            while (!sr.EndOfStream)
+            lines = cachedLines;
+            Console.WriteLine("using cache memory");
+        }
+        else
+        {
+            byte[] fileBytes = File.ReadAllBytes(path);
+
+            List<string> linesList = [];
+            using (var ms = new MemoryStream(fileBytes))
             {
-                var line = sr.ReadLine();
-                if (!string.IsNullOrWhiteSpace(line))
+                using var sr = new StreamReader(ms);
+                while (!sr.EndOfStream)
                 {
-                    lines.Add(line);
+                    var line = sr.ReadLine();
+                    if (!string.IsNullOrWhiteSpace(line))
+                    {
+                        linesList.Add(line);
+                    }
                 }
             }
+
+            lines = [.. linesList];
+            cachedLines = lines;
+            cachedFilePath = path;
+            cachedFileSize = fileInfo.Length;
+            cachedLastWriteTimeUtc = fileInfo.LastWriteTimeUtc;
         }
 
         var data = new Dictionary<string, List<decimal>>();
